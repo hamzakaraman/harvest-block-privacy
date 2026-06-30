@@ -1,145 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Harvest Block</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #e8f5e9;
+            --primary-dark: #1b5e20;
+            --accent: #f57c00;
+            --accent-light: #fff3e0;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius-lg: 16px;
+            --radius-md: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #2c3e50;
-        }
-
-        h1 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #7f8c8d;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #4caf50 100%);
+            color: white;
+            padding: 80px 20px 140px;
             text-align: center;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Layout Container */
+        .main-container {
+            max-width: 1150px;
+            margin: -80px auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        /* Sticky Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 30px;
+            height: fit-content;
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateX(4px);
+        }
+
+        /* Content Area */
+        .content-card {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-card section {
+            margin-bottom: 40px;
+            scroll-margin-top: 30px;
+        }
+
+        .content-card section:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-card h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .content-card h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 22px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .content-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 20px 0 10px;
+        }
+
+        .content-card p {
+            margin-bottom: 16px;
+            color: #334155;
+        }
+
+        .content-card ul {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content-card li {
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        .content-card strong {
+            color: var(--text-main);
+        }
+
+        /* Links styling */
+        .content-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--primary);
+            transition: all 0.2s ease;
+        }
+
+        .content-card a:hover {
+            color: var(--primary-dark);
+            border-bottom-style: solid;
+            background-color: var(--primary-light);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        /* Third party cards grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background: #f8fafc;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+            background: #ffffff;
+        }
+
+        .service-name {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .service-link {
+            font-size: 0.85rem;
+            align-self: flex-start;
+        }
+
+        /* Callout Box */
+        .callout-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .callout-box p {
+            margin: 0;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                margin-top: -60px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="hero">
+        <span class="badge">Legal Agreement</span>
         <h1>Privacy Policy</h1>
-        <p><strong>Last updated:</strong> April 22, 2026</p>
-
-        <p>This Privacy Policy applies to the <strong>Harvest Block</strong> mobile application (hereby referred to as
-            "Application") for mobile devices that was created by Hamza Karaman (hereby referred to as "Service
-            Provider") as a Free/Ad-Supported service. This service is provided "AS IS".</p>
-
-        <h2>1. Information Collection and Use</h2>
-        <p>For a better experience while using the Application, the Service Provider may require you to provide us with
-            certain personally identifiable information. The information that the Service Provider requests will be
-            retained by them and used as described in this privacy policy.</p>
-
-        <p>The Application does use third-party services that may collect information used to identify you.</p>
-
-        <h3>Data collected automatically:</h3>
-        <ul>
-            <li><strong>Device Information:</strong> Such as your mobile device ID, operating system, and device type.
-            </li>
-            <li><strong>Usage Data (Firebase Analytics):</strong> We collect data about how you interact with the game
-                (e.g., levels completed, scores, game modes played) to improve game balance and user experience.</li>
-            <li><strong>Crash Logs (Firebase Crashlytics):</strong> If the app crashes, we collect error reports to help
-                us identify and fix bugs quickly.</li>
-            <li><strong>Advertising Data (Google AdMob):</strong> We use third-party advertising networks that may
-                collect Device Advertising IDs to serve personalized or non-personalized ads.</li>
-        </ul>
-
-        <h3>Account Information:</h3>
-        <p>If you choose to sign in (via Google Sign-In or Sign in with Apple), the Application may collect basic
-            profile information (such as your email address and name) to authenticate you and sync your game progress
-            across devices using Firebase Authentication and Realtime Database.</p>
-
-        <h2>2. Third-Party Services</h2>
-        <p>Link to the privacy policy of third-party service providers used by the Application:</p>
-        <ul>
-            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play
-                    Services</a></li>
-            <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank"
-                    rel="noopener noreferrer">AdMob</a></li>
-            <li><a href="https://firebase.google.com/policies/analytics" target="_blank"
-                    rel="noopener noreferrer">Google Analytics for Firebase</a></li>
-            <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank"
-                    rel="noopener noreferrer">Firebase Crashlytics</a></li>
-            <li><a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" rel="noopener noreferrer">Apple
-                    (for Sign in with Apple)</a></li>
-        </ul>
-
-        <h2>3. Log Data</h2>
-        <p>The Service Provider wants to inform you that whenever you use the Application, in a case of an error in the
-            Application, data and information (through third-party products) is collected on your phone called Log Data.
-            This Log Data may include information such as your device Internet Protocol (“IP”) address, device name,
-            operating system version, the configuration of the Application when utilizing the Service, the time and date
-            of your use of the Service, and other statistics.</p>
-
-        <h2>4. Security</h2>
-        <p>The Service Provider values your trust in providing us your Personal Information, thus we are striving to use
-            commercially acceptable means of protecting it. But remember that no method of transmission over the
-            internet, or method of electronic storage is 100% secure and reliable, and the Service Provider cannot
-            guarantee its absolute security.</p>
-
-        <h2>5. Children's Privacy</h2>
-        <p>The Service Provider does not knowingly collect personally identifiable information from children under the
-            age of 13. In the case the Service Provider discovers that a child under 13 has provided personal
-            information, the Service Provider will immediately delete this from their servers. If you are a parent or
-            guardian and you are aware that your child has provided us with personal information, please contact the
-            Service Provider so that necessary actions can be taken.</p>
-
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>The Service Provider may update our Privacy Policy from time to time. Thus, you are advised to review this
-            page periodically for any changes. The Service Provider will notify you of any changes by posting the new
-            Privacy Policy on this page.</p>
-
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions or suggestions about this Privacy Policy, do not hesitate to contact the Service
-            Provider at: <strong>[6hamzakrmn5@gmail.com]</strong>.</p>
-
+        <p>Your privacy is important to us. Learn how Harvest Block collects, uses, and protects your information.</p>
     </div>
 
-    <div class="footer">
-        &copy; 2026 Harvest Block. All rights reserved.
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <h3>Sections</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#data-collection">2. Information Collection</a></li>
+                <li><a href="#how-we-use">3. How We Use Data</a></li>
+                <li><a href="#purchases">4. In-App Purchases</a></li>
+                <li><a href="#third-parties">5. Third-Party Services</a></li>
+                <li><a href="#user-rights">6. Your Privacy Rights</a></li>
+                <li><a href="#children">7. Children's Privacy</a></li>
+                <li><a href="#security">8. Data Security</a></li>
+                <li><a href="#changes">9. Policy Updates</a></li>
+                <li><a href="#contact">10. Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Privacy Policy Content Card -->
+        <div class="content-card">
+            <p><strong>Last updated:</strong> July 1, 2026</p>
+
+            <section id="introduction">
+                <h2>1. Introduction</h2>
+                <p>This Privacy Policy governs the use of the <strong>Harvest Block</strong> mobile application ("Application") for mobile devices. The Application was created by <strong>Hamza Karaman</strong> ("Service Provider") as a Free and Ad-Supported application containing optional in-app purchases and subscriptions. This service is provided "AS IS".</p>
+                <p>By downloading, installing, or using the Application, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with the terms outlined here, please do not use the Application.</p>
+            </section>
+
+            <section id="data-collection">
+                <h2>2. Information Collection and Use</h2>
+                <p>To provide a functional and enjoyable gaming experience, sync progress across devices, process transactions, and serve advertising, the Service Provider may collect or process certain categories of data.</p>
+                
+                <h3>A. Personal Information You Provide</h3>
+                <ul>
+                    <li><strong>Account Information:</strong> If you choose to log in (via Google Sign-In or Sign in with Apple), we collect your name, email address, profile picture URL, and a unique provider-assigned user identifier. This info is used to sync your game levels, high scores, and items across devices securely.</li>
+                    <li><strong>Customer Support:</strong> If you contact us via email, we collect your email address and any text or screenshots you send us to assist with troubleshooting.</li>
+                </ul>
+
+                <h3>B. Automatically Collected Information</h3>
+                <ul>
+                    <li><strong>Device Specifications:</strong> Information about your mobile device, including operating system version, device model, language, unique device identifiers (such as IDFA for iOS or GAID for Android, depending on consent), and IP address.</li>
+                    <li><strong>Gameplay & Usage Statistics:</strong> Data on how you interact with the game, such as completed levels, high scores, block layouts, achievements, time spent, and game modes played. This is processed using Firebase Analytics.</li>
+                    <li><strong>Crash Reports:</strong> Technical logs generated when the app crashes or encounters a fatal error, processed using Firebase Crashlytics to help us diagnose issues.</li>
+                </ul>
+            </section>
+
+            <section id="how-we-use">
+                <h2>3. How We Use Your Information</h2>
+                <p>The Service Provider utilizes collected data to maintain, optimize, and secure the Application, including:</p>
+                <ul>
+                    <li>Providing cloud save syncing and account management.</li>
+                    <li>Processing in-app purchases and managing active subscriptions (via RevenueCat).</li>
+                    <li>Delivering personalized or non-personalized advertisements through Google AdMob.</li>
+                    <li>Improving game balance, level difficulty, and overall user experience.</li>
+                    <li>Monitoring, detecting, and resolving technical crashes and bugs.</li>
+                    <li>Complying with applicable legal processes and responding to requests from public authorities.</li>
+                </ul>
+            </section>
+
+            <section id="purchases">
+                <h2>4. In-App Purchases and Billing</h2>
+                <p>Harvest Block offers in-app purchases and subscriptions for digital content. To process these safely, we integrate third-party payment and subscription systems:</p>
+                <ul>
+                    <li><strong>Payment Processing:</strong> All transactions are conducted through Google Play Store (for Android) or Apple App Store (for iOS). The Service Provider does not collect, access, or store your credit card, bank account, or other payment details.</li>
+                    <li><strong>Subscription Status Management (RevenueCat):</strong> We use <strong>RevenueCat</strong> to handle receipt verification, manage subscription access levels, and track transaction history. RevenueCat receives a secure transaction receipt and an anonymous app-specific user ID to verify whether you own active subscriptions or virtual purchases.</li>
+                </ul>
+                <div class="callout-box">
+                    <p>No personal payment data is ever stored on our servers. Subscription and purchase states are mapped safely to your anonymous or authenticated account ID via RevenueCat.</p>
+                </div>
+            </section>
+
+            <section id="third-parties">
+                <h2>5. Third-Party Services</h2>
+                <p>The Application utilizes third-party tools that collect, store, and process information. Below are links to the respective privacy policies of these third-party integrations:</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">Google Play Services</div>
+                            <div class="service-desc">Authenticates users and provides Core Android capabilities.</div>
+                        </div>
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">Google AdMob</div>
+                            <div class="service-desc">Delivers advertisements. Ad identifiers may be tracked based on tracking permission.</div>
+                        </div>
+                        <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">Firebase (Analytics & Database)</div>
+                            <div class="service-desc">Provides progress syncing (Firestore / Realtime Database) and gameplay statistics.</div>
+                        </div>
+                        <a href="https://firebase.google.com/policies/analytics" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">Firebase Crashlytics</div>
+                            <div class="service-desc">Diagnoses and records software crashes and stability errors.</div>
+                        </div>
+                        <a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">Apple Privacy</div>
+                            <div class="service-desc">Handles Sign In with Apple and App Store purchases on iOS devices.</div>
+                        </div>
+                        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                    <div class="service-card">
+                        <div>
+                            <div class="service-name">RevenueCat</div>
+                            <div class="service-desc">Processes receipt validation, manages app subscriptions, and updates premium access statuses.</div>
+                        </div>
+                        <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" class="service-link">Privacy Policy</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="user-rights">
+                <h2>6. Your Privacy Rights (GDPR / CCPA Compliance)</h2>
+                <p>Depending on your location, you may have specific statutory privacy rights regarding the personal information we process. These typically include:</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> You can request a summary of the personal information we have associated with your account.</li>
+                    <li><strong>Right to Deletion (Data Erasure):</strong> You have the right to request the deletion of your account and progress data.</li>
+                    <li><strong>Right to Rectification:</strong> You can ask us to correct inaccurate information about you.</li>
+                    <li><strong>Right to Opt-Out:</strong> You can opt-out of personalized advertising. On iOS, you can decline tracking via the App Tracking Transparency (ATT) prompt. On Android, you can reset or disable your Advertising ID in device settings.</li>
+                </ul>
+                <h3>Account and Data Deletion Process</h3>
+                <p>We provide a simple way to delete all your synchronized data:</p>
+                <ol>
+                    <li>Open the Settings menu in the <strong>Harvest Block</strong> app.</li>
+                    <li>Tap the <strong>Delete Account</strong> button and confirm the prompt. This will immediately erase your authenticated profile, level progress, and custom data from Firebase.</li>
+                    <li>Alternatively, you can request manual data deletion by contacting us at <a href="mailto:6hamzakrmn5@gmail.com">6hamzakrmn5@gmail.com</a>. We will process your request within 30 days.</li>
+                </ol>
+            </section>
+
+            <section id="children">
+                <h2>7. Children's Privacy</h2>
+                <p>The Application is not intended for and does not knowingly collect personally identifiable information from children under the age of 13. If the Service Provider becomes aware that a child under 13 has provided personal data, the Service Provider will immediately remove this information from our servers.</p>
+                <p>If you are a parent or guardian and believe your child has disclosed personal data to us, please contact us at <a href="mailto:6hamzakrmn5@gmail.com">6hamzakrmn5@gmail.com</a> so we can take immediate corrective measures.</p>
+            </section>
+
+            <section id="security">
+                <h2>8. Data Security</h2>
+                <p>The Service Provider cares about protecting your data. We use industry-standard security measures (such as TLS encryption for data transmission and secure cloud access controls via Firebase rules) to protect your personal information. However, please be aware that no storage or transmission mechanism over the internet can be guaranteed as 100% secure.</p>
+            </section>
+
+            <section id="changes">
+                <h2>9. Changes to This Privacy Policy</h2>
+                <p>This Privacy Policy may be updated from time to time to align with operational changes or new legal/regulatory requirements. Any modifications will be posted directly on this page with an updated "Last updated" date. We encourage you to review this policy periodically.</p>
+            </section>
+
+            <section id="contact">
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please feel free to reach out directly:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:6hamzakrmn5@gmail.com">6hamzakrmn5@gmail.com</a></li>
+                    <li><strong>Developer:</strong> Hamza Karaman</li>
+                </ul>
+            </section>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 Harvest Block. All rights reserved. Developed by Hamza Karaman.
+    </footer>
 </body>
-
 </html>
